@@ -20,11 +20,13 @@ mongoose.connect(`mongodb+srv://root:admin@cluster0.pd2lx.mongodb.net/flipkart?r
 env.config()
 
 //routes
-const userRoutes = require("./routes/user")
+const authRoutes = require("./routes/auth")
+const adminRoutes = require("./routes/admin/auth")
 
 //middlewares
 app.use(express.json())
-app.use("/api", userRoutes)
+app.use("/api", authRoutes)
+app.use("/api", adminRoutes)
 
 //listener
 app.listen(process.env.PORT, () => {
