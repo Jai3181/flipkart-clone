@@ -2,7 +2,6 @@
 const express = require("express");
 const env = require("dotenv");
 const app = express()
-const bodyParser = require("body-parser")
 const mongoose = require('mongoose');
 
 //mongoose connect
@@ -22,11 +21,13 @@ env.config()
 //routes
 const authRoutes = require("./routes/auth")
 const adminRoutes = require("./routes/admin/auth")
+const categoryRoutes = require("./routes/category")
 
 //middlewares
 app.use(express.json())
 app.use("/api", authRoutes)
 app.use("/api", adminRoutes)
+app.use("/api", categoryRoutes)
 
 //listener
 app.listen(process.env.PORT, () => {

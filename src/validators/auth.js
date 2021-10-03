@@ -9,7 +9,7 @@ exports.validateSignuprequest = [
 
 exports.validateSigninrequest = [
   check('email').isEmail().withMessage("valid email is required"),
-  check('password').isLength({ min: 6 }).withMessage("valid password is required"),
+  check('password').isLength({ min: 5 }).withMessage("valid password is required"),
 ]
 
 exports.isRequestvalidated = (req, res, next) => {
